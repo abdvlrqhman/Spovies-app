@@ -1,7 +1,5 @@
 <p align="center">
-  <a href="https://spacie.net">
-    <img src="https://spacie.net/media/images/logo.png" alt="Spacie" width="320" height="61" />
-  </a>
+  <img src="assets/spovies-banner.png" alt="Spovies banner" width="840" />
 </p>
 
 <h1 align="center">Spovies</h1>
