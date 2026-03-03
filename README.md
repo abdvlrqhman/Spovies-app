@@ -9,6 +9,7 @@
 **Movie & TV discovery · Watchlist · Continue watching · Plugin-based streaming**
 
 [![GitHub](https://img.shields.io/badge/Source-GitHub-24292e?style=flat-square&logo=github)](https://github.com/abdvlrqhman/Spovies-app)
+[![Download](https://img.shields.io/badge/Download-Releases-2ea44f?style=flat-square&logo=github)](https://github.com/abdvlrqhman/Spovies-app/releases)
 [![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter)](https://flutter.dev)
 [![License](https://img.shields.io/badge/License-Spacie%20Personal%20Use-blue?style=flat-square)](LICENSE)
 
