@@ -1,20 +1,24 @@
 <p align="center">
-  <img src="assets/spovies-banner.png" alt="Spovies banner" width="840" />
+  <img src="assets/spovies-banner.png" alt="Spovies" width="840" />
 </p>
 
-<h1 align="center">Spovies</h1>
-<p align="center">
-  <strong>Movie & TV discovery · Watchlist · Continue watching · Plugin-based streaming</strong>
-</p>
-<p align="center">
-  <a href="https://github.com/abdvlrqhman/Spovies-app">Source on GitHub</a> · <sub>© Spacie. All rights reserved.</sub>
-</p>
+<div align="center">
+
+# Spovies
+
+**Movie & TV discovery · Watchlist · Continue watching · Plugin-based streaming**
+
+[![GitHub](https://img.shields.io/badge/Source-GitHub-24292e?style=flat-square&logo=github)](https://github.com/abdvlrqhman/Spovies-app)
+[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter)](https://flutter.dev)
+[![License](https://img.shields.io/badge/License-Spacie%20Personal%20Use-blue?style=flat-square)](LICENSE)
+
+</div>
 
 ---
 
 ## Table of contents
 
-- [What is Spovies?](#what-is-spovies)
+- [Overview](#overview)
 - [Features](#features)
 - [Plugins](#plugins)
 - [Creating your own plugin](#creating-your-own-plugin)
@@ -23,30 +27,45 @@
 
 ---
 
-## What is Spovies?
+## Overview
 
-**Spovies** is a movie and TV show discovery app that lets you:
+**Spovies** is a movie and TV show discovery app that brings everything into one place: browse, search, save to a watchlist, and watch via **plugin-based streaming**. All metadata—posters, cast, overviews, trailers—comes from **TMDB**.
 
-| Discover | Watch | Track | Customize |
-|----------|--------|--------|-----------|
-| Browse trending & top-rated titles, search by name, filter by genre. All metadata (posters, cast, overviews, trailers) comes from **TMDB**. | Use **Watch** from an installed plugin to open the stream in the in-app WebView player. | Save titles to a **watchlist** and use **Continue watching** to resume where you left off (when the plugin reports progress). | Install plugins, export/import your data as a `.spovies` backup, and tweak appearance and playback in **Settings**. |
+<table>
+<tr>
+<td width="25%" align="center"><strong>Discover</strong></td>
+<td width="25%" align="center"><strong>Watch</strong></td>
+<td width="25%" align="center"><strong>Track</strong></td>
+<td width="25%" align="center"><strong>Customize</strong></td>
+</tr>
+<tr>
+<td>Trending & top-rated titles, search, genre filters.</td>
+<td>In-app WebView player via installed plugins.</td>
+<td>Watchlist & continue watching with progress.</td>
+<td>Plugins, backup/restore, theme & playback settings.</td>
+</tr>
+</table>
 
-The app does **not** host or stream content itself. Plugins provide the watch links; you explore and organize everything in one place.
+> **Note:** Spovies does not host or stream content. Plugins supply watch links; the app is your single hub for discovery and organization.
 
 ---
 
 ## Features
 
 ### Home
-- **Hero** — Spotlight for a trending movie.
-- **Trending** & **Top rated** — Horizontal rows.
-- **Continue watching** — Resumes from last position when the plugin supports progress.
+| Feature | Description |
+|--------|-------------|
+| **Hero** | Spotlight for a trending movie. |
+| **Trending & Top rated** | Horizontal rows of curated content. |
+| **Continue watching** | Resumes from last position when the plugin supports progress. |
 
 ### Explore
-- **Search** — By movie or TV show name.
-- **Movies / TV** — Toggle for trending content.
-- **Genre filters** — Narrow results.
-- Tap any poster to open **details**.
+| Feature | Description |
+|--------|-------------|
+| **Search** | By movie or TV show name. |
+| **Movies / TV** | Toggle for trending content. |
+| **Genre filters** | Narrow results. |
+| **Details** | Tap any poster for full details. |
 
 ### Browse (Watchlist)
 - Grid of saved titles.
@@ -54,9 +73,7 @@ The app does **not** host or stream content itself. Plugins provide the watch li
 
 ### Details
 - Backdrop, poster, title, genres, overview.
-- **Cast** row.
-- **Trailer** — Opens in browser.
-- **Watch** — From installed plugins; opens in-app WebView player.
+- **Cast** row · **Trailer** (opens in browser) · **Watch** (from plugins, in-app WebView).
 - **TV shows** — Season and episode list.
 
 ### Player
@@ -65,40 +82,42 @@ The app does **not** host or stream content itself. Plugins provide the watch li
 - Tuned for inline playback (e.g. on iOS).
 
 ### Profile (Settings)
-- **Manage plugins** — Add (by manifest URL), remove, view installed plugins.
-- **Export data** — Back up to a `.spovies` file (watch history, watchlist, plugins, settings).
-- **Import data** — Restore from a `.spovies` backup.
-- **Clear watch history** / **Clear watchlist**.
-- **Theme** — Dark.
-- **Playback** — Player options.
-- **About** — App info and licenses.
+| Option | Description |
+|--------|-------------|
+| **Manage plugins** | Add (by manifest URL), remove, view installed plugins. |
+| **Export data** | Back up to a `.spovies` file (history, watchlist, plugins, settings). |
+| **Import data** | Restore from a `.spovies` backup. |
+| **Clear** | Watch history or watchlist. |
+| **Theme** | Dark. |
+| **Playback** | Player options. |
+| **About** | App info and licenses. |
 
 ---
 
 ## Plugins
 
-Plugins are add-ons that define:
+Plugins define:
 
-- **Where** the Watch action appears (e.g. on the details screen or on episode rows).
+- **Where** the Watch action appears (details screen, episode rows, etc.).
 - **Which URL** (or URL template) opens in the in-app WebView.
-- **Optional** progress reporting so Continue watching and watch history work.
+- **Optional** progress reporting for Continue watching and watch history.
 
-Install plugins in **Settings → Manage Plugins** by entering the **HTTPS URL** of a plugin manifest (a JSON file). Each plugin can optionally send progress events to the app via the Event Bridge.
+Install plugins in **Settings → Manage Plugins** by entering the **HTTPS URL** of a plugin manifest (JSON). Plugins can optionally send progress events via the Event Bridge.
 
 ---
 
 ## Creating your own plugin
 
-You can create a Spovies plugin by hosting a **manifest JSON file** on HTTPS and sharing its URL. When a user adds that URL in **Manage Plugins**, the app fetches the manifest, validates it, and installs the plugin.
+Create a Spovies plugin by hosting a **manifest JSON file** over HTTPS and sharing its URL. Users add that URL in **Manage Plugins**; the app fetches, validates, and installs the plugin.
 
 ### 1. Manifest URL
 
 - Must be **HTTPS**.
-- The app fetches it with a GET request and expects **JSON** in the response.
+- The app sends a GET request and expects **JSON**.
 
 ### 2. Manifest schema
 
-Your manifest must be valid JSON with at least these **required** fields:
+**Required fields:**
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -106,21 +125,19 @@ Your manifest must be valid JSON with at least these **required** fields:
 | `name` | string | Display name shown in the app. |
 | `urlTemplate` | string | URL template with optional placeholders (see below). |
 
-**Optional** fields:
+**Optional fields:**
 
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
 | `version` | string | `"1.0.0"` | Plugin version. |
 | `description` | string | `""` | Short description. |
 | `iconUrl` | string | — | URL of an icon image. |
-| `hooks` | string[] | `["media_header"]` | Where the plugin appears (see [Trigger hooks](#trigger-hooks)). |
-| `actionType` | string | `"webview"` | What happens when the user taps: `webview`, `externalLink`, or `metadataFetch`. |
-| `presentationMode` | string | `"fullscreen"` | How WebView is shown: `fullscreen` or `popover`. |
-| `eventBridgeConfig` | object | — | If you want to report progress (see [Event Bridge](#event-bridge)). |
+| `hooks` | string[] | `["media_header"]` | Where the plugin appears (see [Trigger hooks](#4-trigger-hooks)). |
+| `actionType` | string | `"webview"` | `webview`, `externalLink`, or `metadataFetch`. |
+| `presentationMode` | string | `"fullscreen"` | `fullscreen` or `popover`. |
+| `eventBridgeConfig` | object | — | For progress reporting (see [Event Bridge](#6-event-bridge-progress--continue-watching)). |
 
 ### 3. URL template placeholders
-
-The app replaces these placeholders in `urlTemplate` with the current media data:
 
 | Placeholder | Replaced with |
 |-------------|----------------|
@@ -131,7 +148,7 @@ The app replaces these placeholders in `urlTemplate` with the current media data
 | `{{season}}` | Season number (for TV). |
 | `{{episode}}` | Episode number (for TV). |
 
-**TV path fallback:** If your template does **not** contain `{{season}}` or `{{episode}}` but the media is a TV show, the app appends `/season/episode` as path segments (e.g. `/1/1` for S1E1 when opening from the main details “Watch” button).
+**TV path fallback:** If the template has no `{{season}}` or `{{episode}}` but the media is a TV show, the app appends `/season/episode` (e.g. `/1/1` for S1E1).
 
 **Example:**
 
@@ -150,36 +167,29 @@ The app replaces these placeholders in `urlTemplate` with the current media data
 
 - Movie: `https://example.com/embed/movie/12345`
 - TV from header (no episode): `https://example.com/embed/tv/67890/1/1`
-- TV episode 3: `https://example.com/embed/tv/67890/1/3` (if you pass season/episode when resolving)
+- TV episode: `https://example.com/embed/tv/67890/1/3`
 
 ### 4. Trigger hooks
 
-Control where your plugin’s action appears:
-
 | Hook value | Where it appears |
 |------------|-------------------|
-| `media_header` | On the movie/TV details screen (main “Watch” area). |
-| `episode_item` | On each episode row for TV shows. |
-| `media_card_context` | In context menus or actions on media cards. |
-
-Use the `hooks` array to list one or more of these values.
+| `media_header` | Movie/TV details screen (main “Watch” area). |
+| `episode_item` | Each episode row for TV shows. |
+| `media_card_context` | Context menus or actions on media cards. |
 
 ### 5. Action types
 
 | Value | Behavior |
 |-------|----------|
-| `webview` | Opens the resolved URL inside the app’s WebView player. |
-| `externalLink` | Opens the URL in the device browser (or external app). |
-| `metadataFetch` | For future use (metadata-only plugins). |
+| `webview` | Opens the resolved URL in the app’s WebView player. |
+| `externalLink` | Opens the URL in the device browser or external app. |
+| `metadataFetch` | Reserved for future use. |
 
 ### 6. Event Bridge (progress & continue watching)
 
-If your streaming page runs inside the app’s WebView, you can send **progress events** so Spovies can:
+If your streaming page runs inside the app’s WebView, you can send **progress events** so Spovies can update **Continue watching** and **watch history**.
 
-- Update **Continue watching**.
-- Store **watch history** (position, duration, etc.).
-
-Your page must post JSON messages that the app listens for. The app injects a bridge that forwards `message` events to Flutter.
+Your page posts JSON messages that the app listens for (via an injected bridge).
 
 **Expected postMessage format:**
 
@@ -202,7 +212,7 @@ Your page must post JSON messages that the app listens for. The app injects a br
 | Field | Description |
 |-------|-------------|
 | `type` | Must be `"PLAYER_EVENT"`. |
-| `data.event` | e.g. `timeupdate`, `play`, `pause`, `ended`, `seeked`. Critical events (pause, ended, seeked) are saved immediately; `timeupdate` is throttled (e.g. once per 5 seconds). |
+| `data.event` | e.g. `timeupdate`, `play`, `pause`, `ended`, `seeked`. Critical events are saved immediately; `timeupdate` is throttled. |
 | `data.currentTime` | Current playback time in seconds. |
 | `data.duration` | Total duration in seconds. |
 | `data.progress` | Progress percentage (0–100). |
@@ -219,12 +229,12 @@ Your page must post JSON messages that the app listens for. The app injects a br
 }
 ```
 
-- `postMessageOrigin` — Allowed origin for `postMessage` (use `"*"` to allow any, or your domain).
-- `allowedEventTypes` — Optional allowlist; default includes `progress`, `pause`, `stop`, `heartbeat`.
+- `postMessageOrigin` — Allowed origin (use `"*"` or your domain).
+- `allowedEventTypes` — Optional allowlist.
 
-Your page should call `window.postMessage(…)` with the JSON above (e.g. from the video player’s `timeupdate` or `pause` handlers). The app will parse it and update watch history when the format matches.
+Call `window.postMessage(…)` with the JSON above (e.g. from the player’s `timeupdate` or `pause` handlers).
 
-### 7. Minimal and full example manifests
+### 7. Example manifests
 
 **Minimal (required only):**
 
@@ -256,15 +266,17 @@ Your page should call `window.postMessage(…)` with the JSON above (e.g. from t
 }
 ```
 
-Host this JSON at an HTTPS URL (e.g. `https://mysite.com/spovies-manifest.json`) and share that URL with users. They add it in **Settings → Manage Plugins** to install your plugin.
+Host the JSON at an HTTPS URL and share it; users add it in **Settings → Manage Plugins**.
 
 ---
 
 ## Data & backup
 
-- **Watch history** and **watchlist** are stored locally on the device.
-- **Export** produces a single `.spovies` file (watch history, watchlist, installed plugins, settings). You can share or back it up.
-- **Import** reads a `.spovies` file and merges its data into the app (e.g. after reinstall or on a new device).
+| Capability | Description |
+|------------|-------------|
+| **Storage** | Watch history and watchlist are stored locally. |
+| **Export** | Single `.spovies` file (history, watchlist, plugins, settings) for backup or transfer. |
+| **Import** | Merge data from a `.spovies` file (e.g. after reinstall or on a new device). |
 
 ---
 
@@ -272,15 +284,22 @@ Host this JSON at an HTTPS URL (e.g. `https://mysite.com/spovies-manifest.json`)
 
 | Layer | Technology |
 |-------|------------|
-| App | Flutter (Android & iOS) |
-| Metadata | TMDB (images, cast, genres, etc.) |
-| State & routing | Riverpod, GoRouter |
-| Local storage | Hive (history, watchlist, plugins, settings) |
-| Player | InAppWebView + Event Bridge for plugin progress |
+| **App** | Flutter (Android & iOS) |
+| **Metadata** | TMDB (images, cast, genres, etc.) |
+| **State & routing** | Riverpod, GoRouter |
+| **Local storage** | Hive (history, watchlist, plugins, settings) |
+| **Player** | InAppWebView + Event Bridge for plugin progress |
 
 ---
 
-<p align="center">
-  <sub><strong>Spovies</strong> — Discovery, watchlist, and continue watching with plugin-based streaming.</sub><br />
-  <sub>© <a href="https://spacie.net">Spacie</a>. All rights reserved.</sub>
-</p>
+<div align="center">
+
+**Spovies** — Discovery, watchlist, and continue watching with plugin-based streaming.
+
+© Spacie. All rights reserved.
+
+<a href="https://spacie.net">
+  <img src="https://spacie.net/media/images/logo.png" alt="Spacie" width="593" height="113" />
+</a>
+
+</div>
